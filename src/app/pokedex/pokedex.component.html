@@ -1,0 +1,29 @@
+<div class="pokedex">
+  <div class="pokedex-left">
+    <div class="pokedex-left-top">
+      <div class="light is-sky is-big" [class.is-animate]="loading"></div>
+      <div class="light is-red"></div>
+      <div class="light is-yellow"></div>
+      <div class="light is-green"></div>
+    </div>
+    <div class="pokedex-screen-container">
+      <app-pokedex-screen
+        [loading]='loading'
+        [error]='error'
+        [pokemon]='pokemon'
+      ></app-pokedex-screen>
+    </div>
+    <div class="pokedex-left-bottom">
+      <div class="pokedex-left-bottom-lights">
+        <div class="light is-blue is-medium"></div>
+        <div class="light is-green is-large"></div>
+        <div class="light is-orange is-large"></div>
+      </div>
+      <app-pokedex-form
+        (searchPokemon)='handleSubmit($event)'
+      ></app-pokedex-form>
+    </div>
+  </div>
+  <div class="pokedex-right-front"></div>
+  <div class="pokedex-right-back"></div>
+</div>

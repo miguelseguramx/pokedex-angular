@@ -1,0 +1,27 @@
+<div class="pokedex-screen">
+  <img
+    *ngIf="error"
+    src="/assets/error.gif"
+    alt="Hubo un error buscando tu pokemon"
+    class="pokedex-no-screen"
+  />
+  <!-- { !pokemon || loading ? -->
+  <img
+    *ngIf="loading && !error;"
+    src="/assets/loading.gif"
+    alt="Aun no hay ningun pokemon"
+    class="pokedex-no-screen"
+  /> :
+  <div class="pokemon-info" *ngIf="pokemon && !loading && !error">
+    <h2 class="pokemon-name">{{pokemon.name}}</h2>
+    <img class="pokemon-img" src={{pokemon.sprites.front_default}} alt={pokemon.name}} />
+    <ul class="pokemon-stats">
+      <li
+        class="pokemon-stat"
+        *ngFor="let item of pokemon.stats;"
+      >
+        <app-stat [item]="item"></app-stat>
+      </li>
+    </ul>
+  </div>
+</div>
